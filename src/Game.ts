@@ -1,6 +1,8 @@
 import * as PIXI from 'pixijs';
 import { Entity } from './Entity';
 import { Enemy } from './Enemy';
+import enemies from './enemies.json';
+import { EnemyData } from './Types';
 export class Game {
     private app: PIXI.Application;
     private enemies: Entity[] = [];
@@ -9,7 +11,7 @@ export class Game {
         this.app = app;
         this.loadAssets().then(() => {
             this.createBackground();
-            this.createEnemies();
+            this.createEnemies(enemies);
             this.createCounter();
             this.setupClickHandler();
         });
@@ -34,14 +36,8 @@ export class Game {
         this.app.stage.addChild(background);
     }
 
-    createEnemies(): void {
-        const enemiesData = [
-            { x: 100, y: 200 },
-            { x: 300, y: 400 },
-            { x: 500, y: 100 }
-        ];
-
-        for (const enemyData of enemiesData) {
+    createEnemies(enemies: EnemyData[]): void {
+        for (const enemyData of enemies) {
             const enemy = new Enemy(this.app, enemyData.x, enemyData.y);
             this.app.stage.addChild(enemy.sprite);
             this.enemies.push(enemy);

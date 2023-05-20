@@ -9,3 +9,8 @@ export enum State {
     Idle,
     Walk
 }
+
+export type EnemyData = {
+    x: number;
+    y: number;
+};
