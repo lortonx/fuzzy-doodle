@@ -10,6 +10,7 @@ module.exports = {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist')
     },
+    devtool: 'eval-cheap-module-source-map',
     resolve: {
         extensions: ['.ts', '.js']
     },
@@ -24,7 +25,7 @@ module.exports = {
     },
     devServer: {
         static: {
-            directory: path.join(__dirname, 'dist')
+            directory: path.join(__dirname, './dist')
         },
         client: {
             overlay: {
@@ -42,7 +43,7 @@ module.exports = {
         new CopyPlugin({
             patterns: [
                 { from: './index.html', to: './index.html' },
-                { from: './src/assets', to: './assets' }
+                { from: './assets', to: './assets' }
             ]
         })
     ]

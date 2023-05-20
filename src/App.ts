@@ -1,19 +1,19 @@
-import * as PIXI from 'pixi.js';
-// import { Game } from './Game';
-
+import * as PIXI from 'pixijs';
+import { Game } from './Game';
 export class App {
     readonly canvas: HTMLCanvasElement;
     readonly app: PIXI.Application;
-    // game: Game;
+    width = 800;
+    height = 600;
+    game: Game;
     constructor() {
-        this.canvas = document.querySelector('#game') as HTMLCanvasElement;
+        this.canvas = document.querySelector('#app') as HTMLCanvasElement;
         this.app = new PIXI.Application({
             view: this.canvas,
-            width: 800,
-            height: 600,
-            backgroundColor: 0x1099bb
+            width: this.width,
+            height: this.height,
+            backgroundColor: 0x00dd00
         });
-        // this.game = new Game(this.app);
-        // this.game.start();
+        this.game = new Game(this.app);
     }
 }

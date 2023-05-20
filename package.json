@@ -28,11 +28,10 @@
         "webpack-dev-server": "^4.15.0"
     },
     "dependencies": {
-        "@pixi/interaction": "^6.5.9",
-        "@pixi/loaders": "^6.5.9",
         "clean-webpack-plugin": "^4.0.0",
         "copy-webpack-plugin": "^11.0.0",
-        "pixi.js": "^7.2.4",
+        "gsap": "^3.11.5",
+        "pixijs": "^7.1.4",
         "prettier": "^2.8.8"
     }
 }
